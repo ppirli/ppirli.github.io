@@ -234,7 +234,7 @@
                 range: xRange,
                 zeroline: true,
                 zerolinecolor: 'black',
-                zerolinewidth: 2
+                zerolinewidth: 1.5
             },
 
             yaxis: {
@@ -242,7 +242,7 @@
                 range: yRange,
                 zeroline: true,
                 zerolinecolor: 'black',
-                zerolinewidth: 2
+                zerolinewidth: 1.5
             },
 
             hovermode: 'closest'
@@ -324,10 +324,12 @@
             margin: {b: 200, l: 200},
             xaxis: {
                 tickmode: 'linear',
+                dtick: 1,
                 automargin: true
             },
             yaxis: {
                 tickmode: 'linear',
+                dtick: 1,
                 automargin: true
             }
         };
