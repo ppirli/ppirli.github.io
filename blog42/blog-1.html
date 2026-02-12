@@ -90,14 +90,18 @@
 
     <div class="controls">
         <div class="control-group">
-            <label for="mfwSlider"><strong>MFW Count:</strong> <span id="mfwDisplay">100</span></label>
+            <label for="mfwSlider"><strong>Most Frequent Word (MFW) Count:</strong> <span id="mfwDisplay">100</span></label>
             <input type="range" id="mfwSlider" min="100" max="2000" step="100" value="100">
         </div>
 
         <div class="control-group">
-            <label><strong>Stopwords:</strong></label>
-            <label><input type="checkbox" id="stopwordSwitch" checked> Include Stopwords</label>
-        </div>
+                    <label><strong>Stopwords:</strong>
+                        <div class="tooltip">ⓘ
+                            <span class="tooltiptext">Stopwords are words that commonly occur in texts, such as "the," "is," and "for." Conventionally, they are filtered out in NLP tasks, but in stylometry, they may point to the unconscious stylistic fingerprint of an author.</span>
+                        </div>
+                    </label>
+                    <label><input type="checkbox" id="stopwordSwitch" checked> Include Stopwords</label>
+                </div>
 
         <div class="control-group" id="pcaColorsControl">
             <label><strong>PCA Color By:</strong></label>
