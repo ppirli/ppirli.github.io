@@ -207,12 +207,20 @@
             trace.marker.colorbar = {title: 'Year'};
         }
         const layout = {
-                title: `PCA Analysis (${document.getElementById('mfwSlider').value} MFW)`,
-                xaxis: {title: 'PC 1'},
-                yaxis: {title: 'PC 2'},
-                // width: 1000,
-                // height: 1000,
-                hovermode: 'closest'
+            title: `PCA Analysis (${document.getElementById('mfwSlider').value} MFW)`,
+            xaxis: {
+                title: 'PC 1',
+                zeroline: true,
+                zerolinecolor: '#888',
+                zerolinewidth: 2
+            },
+            yaxis: {
+                title: 'PC 2',
+                zeroline: true,
+                zerolinecolor: '#888',
+                zerolinewidth: 2
+            },
+            hovermode: 'closest'
         };
 
         Plotly.newPlot('pca', [trace], layout);
