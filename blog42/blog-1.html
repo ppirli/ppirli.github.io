@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylometric Analysis Explorer</title>
+    <script src="https:
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 20px; background: #f4f4f9; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+
+        /* Controls */
+        .controls { display: flex; gap: 20px; align-items: center; padding: 20px; background: #eee; border-radius: 8px; margin-bottom: 20px; flex-wrap: wrap;}
+        .control-group { display: flex; flex-direction: column; }
+        input[type=range] { width: 300px; }
+
+        /* Tabs */
+        .tabs { display: flex; border-bottom: 2px solid #ccc; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab { padding: 10px 20px; cursor: pointer; border: 1px solid transparent; border-bottom: none; }
+        .tab:hover { background: #f9f9f9; }
+        .tab.active { background: white; border-color: #ccc; border-bottom: 2px solid white; margin-bottom: -2px; font-weight: bold; }
+
+        /* View Areas */
+        .view { display: none; min-height: 600px; width: 100%; }
+        .view.active { display: block; }
+
+        /* SVG Container */
+        #dendrogram_img_container { text-align: center; overflow-x: auto; }
+        #dendrogram_img_container img { max-width: 100%; height: auto; }
+
+        /* Loading Overlay */
+        #loading { position: fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:999; display:flex; justify-content:center; align-items:center; font-size: 2em; }
+    </style>
+</head>
+<body>
+
+<div id="loading">Loading Data...</div>
+
+<div class="container">
+    <h1>Stylometric Analysis: 42 Novels</h1>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="mfwSlider"><strong>MFW Count:</strong> <span id="mfwDisplay">100</span></label>
+            <input type="range" id="mfwSlider" min="100" max="2000" step="100" value="100">
+        </div>
+
+        <div class="control-group">
+            <label><strong>Stopwords:</strong></label>
+            <label><input type="checkbox" id="stopwordSwitch" checked> Include Stopwords</label>
+        </div>
+
+        <div class="control-group" id="pcaColorsControl">
+            <label><strong>PCA Color By:</strong></label>
+            <select id="pcaColorSelect">
+                <option value="gender">Gender</option>
+                <option value="date">Publication Date</option>
+            </select>
+        </div>
+
+        <div class="control-group" id="distinctiveControl" style="display:none;">
+            <label><strong>Select Novel:</strong></label>
+            <select id="novelSelect"></select>
+        </div>
+
+        <div class="control-group" id="pcSelectorControl" style="display:none;">
+            <label for="pcSelect"><strong>Principal Component:</strong></label>
+            <select id="pcSelect" onchange="updatePlots()">
+                <option value="1">PC1</option>
+                <option value="2">PC2</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('pca')">1. PCA Plot</div>
+        <div class="tab" onclick="switchTab('distinctive')">2. Distinctive Words</div>
+        <div class="tab" onclick="switchTab('loadings')">3. Loadings (Top 10)</div>
+        <div class="tab" onclick="switchTab('cluster')">4. Cluster Analysis</div>
+        <div class="tab" onclick="switchTab('heatmap')">5. Distance Heatmap</div>
+    </div>
+
+    <div id="pca" class="view active"></div>
+    <div id="distinctive" class="view"></div>
+    <div id="loadings" class="view"></div>
+
+    <div id="cluster" class="view">
+        <div id="dendrogram_img_container">
+            </div>
+    </div>
+
+    <div id="heatmap" class="view"></div>
+
+</div>
+
+<script>
+    let globalData = null;
+    let currentTab = 'pca';
+
+
+    fetch('stylometry_data.json')
+        .then(response => response.json())
+        .then(data => {
+            globalData = data;
+
+
+            const novelSel = document.getElementById('novelSelect');
+            data.metadata.filenames.forEach((name, i) => {
+                let opt = document.createElement('option');
+                opt.value = name;
+                opt.innerText = name;
+                novelSel.appendChild(opt);
+            });
+
+            document.getElementById('loading').style.display = 'none';
+            updatePlots();
+        });
+
+
+    document.getElementById('mfwSlider').addEventListener('input', (e) => {
+        document.getElementById('mfwDisplay').innerText = e.target.value;
+        updatePlots();
+    });
+    document.getElementById('stopwordSwitch').addEventListener('change', updatePlots);
+    document.getElementById('pcaColorSelect').addEventListener('change', updatePlots);
+    document.getElementById('novelSelect').addEventListener('change', updatePlots);
+
+    function switchTab(tabId) {
+        currentTab = tabId;
+
+
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+
+
+        if (event && event.target) {
+            event.target.classList.add('active');
+        }
+        document.getElementById(tabId).classList.add('active');
+
+
+
+        document.getElementById('pcaColorsControl').style.display = tabId === 'pca' ? 'flex' : 'none';
+
+
+        document.getElementById('distinctiveControl').style.display = tabId === 'distinctive' ? 'flex' : 'none';
+
+
+        const pcControl = document.getElementById('pcSelectorControl');
+        if (pcControl) {
+            pcControl.style.display = tabId === 'loadings' ? 'flex' : 'none';
+        }
+
+
+        updatePlots();
+    }
+
+
+    function updatePlots() {
+        if (!globalData) return;
+
+        const mfw = document.getElementById('mfwSlider').value;
+        const useStop = document.getElementById('stopwordSwitch').checked;
+        const datasetKey = useStop ? 'with_stop' : 'no_stop';
+        const currentData = globalData.data[datasetKey][mfw];
+        const meta = globalData.metadata;
+
+        if (currentTab === 'pca') {
+            renderPCA(currentData, meta);
+        } else if (currentTab === 'distinctive') {
+            renderDistinctive(currentData, meta);
+        } else if (currentTab === 'loadings') {
+            renderLoadings(currentData);
+        } else if (currentTab === 'cluster') {
+            renderCluster(currentData);
+        } else if (currentTab === 'heatmap') {
+            renderHeatmap(currentData, meta);
+        }
+    }
+
+
+
+    function renderCluster(data) {
+        const container = document.getElementById('dendrogram_img_container');
+
+        container.innerHTML = `<img src="data:image/svg+xml;base64,${data.dendrogram_svg}" alt="Dendrogram">`;
+    }
+
+    function renderPCA(data, meta) {
+        const colorMode = document.getElementById('pcaColorSelect').value;
+        let trace = {
+            x: data.pca_x,
+            y: data.pca_y,
+            mode: 'markers+text',
+            text: meta.filenames,
+            textposition: 'top center',
+            marker: { size: 12, line: {width:1, color:'black'} },
+            type: 'scatter'
+        };
+
+        if (colorMode === 'gender') {
+            const colorMap = {'Male': '#4477AA', 'Female': '#EE6677'};
+            trace.marker.color = meta.genders.map(g => colorMap[g] || 'grey');
+        } else {
+            trace.marker.color = meta.years;
+            trace.marker.colorscale = 'RdBu';
+            trace.marker.colorbar = {title: 'Year'};
+        }
+        const layout = {
+                title: `PCA Analysis (${document.getElementById('mfwSlider').value} MFW)`,
+                xaxis: {title: 'PC 1'},
+                yaxis: {title: 'PC 2'},
+                width: 700,
+                height: 700,
+                hovermode: 'closest'
+        };
+
+        Plotly.newPlot('pca', [trace], layout);
+    }
+
+    function renderDistinctive(data, meta) {
+        const selectedNovel = document.getElementById('novelSelect').value;
+        const distData = data.distinctive[selectedNovel];
+
+        const trace = {
+            x: distData.scores,
+            y: distData.words,
+            type: 'bar',
+            orientation: 'h',
+            marker: {
+                color: distData.scores.map(v => v < 0 ? '#ff6b6b' : '#4ecdc4')
+            }
+        };
+
+        const layout = {
+            title: `Distinctive Words (Z-Score) for ${selectedNovel}`,
+            xaxis: {title: 'Z-Score'},
+            margin: {l: 100}
+        };
+
+        Plotly.newPlot('distinctive', [trace], layout);
+    }
+
+    function renderLoadings(data) {
+
+        const pcSelect = document.getElementById('pcSelect');
+        const pc = pcSelect ? pcSelect.value : '1';
+
+
+        const words = data[`loadings_pc${pc}_words`];
+        const vals = data[`loadings_pc${pc}_val`];
+
+        const trace = {
+            x: vals,
+            y: words,
+            type: 'bar',
+            orientation: 'h',
+            marker: {
+
+                color: pc === '1' ? '#1f77b4' : '#ff7f0e'
+            }
+        };
+
+        const layout = {
+            title: `Top Words Driving PC${pc}`,
+            xaxis: {title: 'Loading Value'},
+            yaxis: {
+                autorange: 'reversed',
+                automargin: true
+            },
+            margin: {l: 100}
+        };
+
+        Plotly.newPlot('loadings', [trace], layout);
+    }
+
+    function renderHeatmap(data, meta) {
+        const trace = {
+            z: data.heatmap,
+            x: meta.filenames,
+            y: meta.filenames,
+            type: 'heatmap',
+            colorscale: 'Inferno',
+            reversescale: true
+        };
+
+        const layout = {
+            title: 'Stylometric Distance (Sorted Chronologically)',
+            height: 700,
+            width: 700,
+
+            margin: {b: 200, l: 200},
+
+            xaxis: {
+                tickmode: 'linear',
+                automargin: true
+            },
+            yaxis: {
+                tickmode: 'linear',
+                automargin: true
+            }
+        };
+
+        Plotly.newPlot('heatmap', [trace], layout);
+    }
+</script>
+</body>
+</html>
