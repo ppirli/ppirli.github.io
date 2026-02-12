@@ -234,7 +234,7 @@
                 range: xRange,
                 zeroline: true,
                 zerolinecolor: 'black',
-                zerolinewidth: 1.25
+                zerolinewidth: 1.5
             },
 
             yaxis: {
@@ -242,7 +242,7 @@
                 range: yRange,
                 zeroline: true,
                 zerolinecolor: 'black',
-                zerolinewidth: 1.25
+                zerolinewidth: 1.5
             },
 
             hovermode: 'closest'
@@ -323,19 +323,13 @@
             width: 900,
             margin: {b: 200, l: 200},
             xaxis: {
-                tickmode: 'array',
-                tickvals: meta.filenames,
-                ticks: 'outside',
-                ticklen: 5,
-                tickwidth: 1,
+                tickmode: 'linear',
+                dtick: 1,
                 automargin: true
             },
             yaxis: {
-                tickmode: 'array',
-                tickvals: meta.filenames,
-                ticks: 'outside',
-                ticklen: 5,
-                tickwidth: 1,
+                tickmode: 'linear',
+                dtick: 1,
                 automargin: true
             }
         };
