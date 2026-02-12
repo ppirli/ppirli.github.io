@@ -187,43 +187,66 @@
     }
 
     function renderPCA(data, meta) {
+
         const colorMode = document.getElementById('pcaColorSelect').value;
+
         let trace = {
             x: data.pca_x,
             y: data.pca_y,
             mode: 'markers+text',
             text: meta.filenames,
             textposition: 'top center',
-            marker: { size: 12, line: {width:1, color:'black'} },
+            marker: { size: 12, line: { width: 1, color: 'black' } },
             type: 'scatter'
         };
 
         if (colorMode === 'gender') {
-            const colorMap = {'Male': '#4477AA', 'Female': '#EE6677'};
+            const colorMap = { 'Male': '#4477AA', 'Female': '#EE6677' };
             trace.marker.color = meta.genders.map(g => colorMap[g] || 'grey');
         } else {
             trace.marker.color = meta.years;
             trace.marker.colorscale = 'RdBu';
-            trace.marker.colorbar = {title: 'Year'};
+            trace.marker.colorbar = { title: 'Year' };
         }
+
+        // --- SYMMETRIC MANUAL RANGES ---
+
+        const maxAbsX = Math.max(...data.pca_x.map(v => Math.abs(v)));
+        const maxAbsY = Math.max(...data.pca_y.map(v => Math.abs(v)));
+
+        const padding = 0.1; // 10% breathing room
+
+        const xRange = [
+            -maxAbsX * (1 + padding),
+            maxAbsX * (1 + padding)
+        ];
+
+        const yRange = [
+            -maxAbsY * (1 + padding),
+            maxAbsY * (1 + padding)
+        ];
+
         const layout = {
             title: `PCA Analysis (${document.getElementById('mfwSlider').value} MFW)`,
+
             xaxis: {
                 title: 'PC 1',
-                zeroline: false,
-                //zerolinecolor: '#000000',
-                //zerolinewidth: 1,
-                gridcolor: '#e1e1e1',
-                rangemode: 'tozero'
+                //range: xRange,
+                //zeroline: true,
+                //zerolinecolor: 'black',
+                //zerolinewidth: 2,
+                //gridcolor: '#e1e1e1'
             },
+
             yaxis: {
                 title: 'PC 2',
-                zeroline: false,
-                //zerolinecolor: '#000000',
-                //zerolinewidth: 1,
-                gridcolor: '#e1e1e1',
-                rangemode: 'tozero'
+                //range: yRange,
+                //zeroline: true,
+                //zerolinecolor: 'black',
+                //zerolinewidth: 2,
+                //gridcolor: '#e1e1e1'
             },
+
             hovermode: 'closest'
         };
 
