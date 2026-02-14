@@ -11,8 +11,8 @@ title: Home
 ## Introduction
 Test intro[^1]
 
-## Kramdown Features
-Kramdown supports some cool block attributes. 
+## link
+[link to blog42](./blog42)
 
 > This is a blockquote.
 {: title="Title of my blockquote"}
