@@ -8,6 +8,7 @@ title: Stylometric Analysis
 
 # 42 Books / 42 Years Blog Post 1: Stylometric Analysis
 > Access the Stylometric Explorer, the companion piece to this blog, [here.](blog-1.html)
+
 ## Introduction: What is stylometric analysis, anyway?
 I would like to begin my series of blog posts on the books comprising [History of Black Writing (HBW)](https://hbw.iu.edu)'s 2025 exhibit [*42 Books / 42 Years*](https://hbw.iu.edu/news-events/events/42Books-42Years/index.html), with a distant[^1] stylometric reading. "Stylometry," in this context, is the statistical analysis of linguistic style in texts. Stylometry has a long history; in a foundational article dating to 1887, T. C. Mendenhall considers the word-length distribution of texts as a vector of their authors' unconscious stylistic fingerprints.[^2]
 
@@ -32,11 +33,11 @@ In sum, I converted the novels to normalized frequency distributions that measur
 
 ### The matter of visualization
 This subsection serves as a quick overview of the five visualization components of the Stylometric Analysis Explorer. I will rely primarily on the first of these components in this blog post.
-1. Principal Component Analysis (PCA) Plot: In short, a PCA plot puts our normalized frequency distributions on a two-dimensional plane. Think of it this way: a frequency distribution of 100 MFWs is a 100-dimensional shape, which is hard to visualize. PCA reduces those dimensions to two "principal components" (PCs). On this PCA plot, our 42 novels can be separated on the basis of gender and publication date.
-2. Distinctive Words (Top 5 -/+): Displays the five most extreme negative and positive z-scores for each novel. This can show what words make a given novel different from the rest.
-3. Loadings (Top 10): Displays the top 10 loadings for PC1 and PC2. A positive loading for a word means that the presence of this word contributes to the PC, whereas a negative loading means that the word's absence contributes to the PC.
-4. Cluster Analysis: Calculates the distance between each novel pair using Manhattan distance, and clusters the novels according to these pairwise distances using Ward's method into a dendrogram (tree graph).
-5. Distance Heatmap: Puts the pairwise distances between each novel on to a heatmap.
+1. **Principal Component Analysis (PCA) Plot:** In short, a PCA plot puts our normalized frequency distributions on a two-dimensional plane. Think of it this way: a frequency distribution of 100 MFWs is a 100-dimensional shape, which is hard to visualize. PCA reduces those dimensions to two "principal components" (PCs). On this PCA plot, our 42 novels can be separated on the basis of gender and publication date.
+2. **Distinctive Words (Top 5 -/+):** Displays the five most extreme negative and positive z-scores for each novel. This can show what words make a given novel different from the rest.
+3. **Loadings (Top 10):** Displays the top 10 loadings for PC1 and PC2. A positive loading for a word means that the presence of this word contributes to the PC, whereas a negative loading means that the word's absence contributes to the PC.
+4. **Cluster Analysis:** Calculates the distance between each novel pair using Manhattan distance, and clusters the novels according to these pairwise distances using Ward's method into a dendrogram (tree graph).
+5. **Distance Heatmap:** Puts the pairwise distances between each novel on to a heatmap.
 
 ## Analysis
 
