@@ -38,13 +38,12 @@ This subsection serves as a quick overview of the five visualization components 
 3. **Loadings (Top 10):** Displays the top 10 loadings for PC1 and PC2. A positive loading for a word means that the presence of this word contributes to the PC, whereas a negative loading means that the word's absence contributes to the PC.
 4. **Cluster Analysis:** Calculates the distance between each novel pair using Manhattan distance, and clusters the novels according to these pairwise distances using Ward's method into a dendrogram (tree graph).
 5. **Distance Heatmap:** Puts the pairwise distances between each novel on to a heatmap.
-
 ## Analysis
 
 
 [^1]: "Distant" as in digital humanities pioneer Franco Moretti's famous coinage, "distant reading." I mean to say that I will apply a computational method to look at all 42 books at once, instead of close reading a few of them.
-[^2]: Mendenhall, T. C. “The Characteristic Curves of Composition.” *Science*, vol. 9, no. 214, 1887, pp. 237–49.
+[^2]: Mendenhall, T. C. ["The Characteristic Curves of Composition."](https://www.jstor.org/stable/1764604) *Science*, vol. 9, no. 214, 1887, pp. 237–49.
 [^3]: See [this](https://languagelog.ldc.upenn.edu/nll/?p=5315) *Language Log* blog post.
 [^4]: As just two examples of this kind of computational literary studies scholarship, see Matthew L. Jockers's [*Macroanalysis: Digital Methods and Literary History*](https://www.press.uillinois.edu/books/?id=p079078) (2013) and Andrew Piper's [*Enumerations: Data and Literary Study*](https://press.uchicago.edu/ucp/books/book/chicago/E/bo28465405.html) (2018).
 [^5]: This is a very simplified explanation of the z-score normalization procedure, and misses important nuances. For a more detailed explanation, which comes complete with Python code, please read the section on John Burrows's Delta method in François Dominic Laramée's *Programming Historian* tutorial, ["Introduction to stylometry with Python"](https://programminghistorian.org/en/lessons/introduction-to-stylometry-with-python#third-stylometric-test-john-burrows-delta-method-advanced).
-[^6]: Readers familiar with the field of stylometry will notice that this is the underlying logic of John Burrows's Delta method. See Burrows, John. "'Delta': A Measure of Stylistic Difference and a Guide to Likely Authorship." *Literary and Linguistic Computing*, vol. 17, no. 3, Sep. 2002, pp. 267–87.
+[^6]: Readers familiar with the field of stylometry will notice that this is the underlying logic of John Burrows's Delta method. See Burrows, John. ["'Delta': A Measure of Stylistic Difference and a Guide to Likely Authorship."](https://doi.org/10.1093/llc/17.3.267) *Literary and Linguistic Computing*, vol. 17, no. 3, Sep. 2002, pp. 267–87.
