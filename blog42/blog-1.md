@@ -38,8 +38,13 @@ This subsection serves as a quick overview of the five visualization components 
 3. **Loadings (Top 10):** Displays the top 10 loadings for PC1 and PC2. A positive loading for a word means that the presence of this word contributes to the PC, whereas a negative loading means that the word's absence contributes to the PC.
 4. **Cluster Analysis:** Calculates the distance between each novel pair using Manhattan distance, and clusters the novels according to these pairwise distances using Ward's method into a dendrogram (tree graph).
 5. **Distance Heatmap:** Puts the pairwise distances between each novel on to a heatmap.
-## Analysis
 
+## Analysis
+### Looking from afar: gender and chronology
+
+Without further ado, let's get right into it. Let's look at our data from afar, and look at the broad divisions of gender and chronology. [Figure 1](Figure1)
+
+![Figure1](./figs/fig1.gif)
 
 [^1]: "Distant" as in digital humanities pioneer Franco Moretti's famous coinage, "distant reading." I mean to say that I will apply a computational method to look at all 42 books at once, instead of close reading a few of them.
 [^2]: Mendenhall, T. C. ["The Characteristic Curves of Composition."](https://www.jstor.org/stable/1764604) *Science*, vol. 9, no. 214, 1887, pp. 237–49.
