@@ -2,7 +2,7 @@ title: testing
 description: just testing
 
 markdown: kramdown
-theme: minima
+theme: monophase
 
 kramdown:
   input: GFM
