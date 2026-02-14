@@ -1,0 +1,11 @@
+title: testing
+description: just testing
+
+markdown: kramdown
+theme: minima
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+  toc_levels: 1..3
