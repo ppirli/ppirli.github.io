@@ -3,5 +3,5 @@ layout: default
 title: Home
 ---
 
-# posts for blog42
+# Posts for blog42
 1. [Blog 1](./blog-1.md) / [Companion piece](./blog-1.html)
