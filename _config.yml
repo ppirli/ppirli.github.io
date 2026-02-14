@@ -2,7 +2,10 @@ title: testing
 description: just testing
 
 markdown: kramdown
-theme: monophase
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: zivhub/monophase@main
 
 kramdown:
   input: GFM
