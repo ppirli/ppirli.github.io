@@ -68,7 +68,7 @@ Looking at [Figure 1](#Figure1), one may notice *Iola Leroy, or, Shadows Uplifte
 As [Figure 5](#Figure5) shows, the PC1 axis, which is the main vehicle of the chronological division among our 42 novels, seems to be driven by low semantic value, high frequency words that we associate with unconscious style regardless of the MFW stratum. It may be said, then, that the chronological style drift over time observed in this plot has its roots in how Black authors of different periods have approached the English language.
 
 ![Figure 5](./figs/fig5.gif){: #Figure5}
->Figure 2. The top ten loadings of PC1, in a progression from 100 to 2000 MFW.
+>Figure 5. The top ten loadings of PC1, in a progression from 100 to 2000 MFW.
 
 500...
 
