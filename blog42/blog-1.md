@@ -7,9 +7,9 @@ title: Stylometric Analysis
 {:toc}
 
 # 42 Books / 42 Years Blog Post 1: Stylometric Analysis
-> Access the Stylometric Explorer, the companion piece to this blog, [here.](blog-1.html)
+> Access the Stylometric Analysis Explorer, the companion piece to this blog, [here.](SAE.html)
 
-## Introduction: What is stylometric analysis, anyway?
+## Introduction: what is stylometric analysis, anyway?
 I would like to begin my series of blog posts on the books comprising [History of Black Writing (HBW)](https://hbw.iu.edu)'s 2025 exhibit [*42 Books / 42 Years*](https://hbw.iu.edu/news-events/events/42Books-42Years/index.html), with a distant[^1] stylometric reading. "Stylometry," in this context, is the statistical analysis of linguistic style in texts. Stylometry has a long history; in a foundational article dating to 1887, T. C. Mendenhall considers the word-length distribution of texts as a vector of their authors' unconscious stylistic fingerprints.[^2]
 
 Following Mendenhall, many contemporary stylometric studies have the objective of attributing an author to documents of disputed or unknown authorship. As a case in point, in 2013, Duquesne University computer scientist Patrick Juola found evidence suggesting that J. K. Rowling wrote the detective novel *The Cuckoo's Calling* under the pseudonym Robert Galbraith.[^3] Among other measures, Juola selected the 100 most frequent words (more on this [below!](#what-i-did-how-i-did-it-and-what-it-all-means)) occurring in a corpus of texts by a handful of authors, and compared the ratio of these words in *The Cuckoo's Calling* with the texts in the corpus.
@@ -25,8 +25,11 @@ First, I placed each novel into a consistent naming schema, such that—for inst
 Next, I used the Python natural language processing (NLP) library [spaCy](https://spacy.io/) to break each novel into individual tokens (or, in common parlance, words). I then converted each text into frequency distributions of the *n* most frequent words (MFWs) in the corpus, starting from 100 MFWs and ending at 2000, in increments of 100. I did this twice, once including stopwords, and once excluding them. "Stopwords," an NLP term of art, refers to words with low semantic value and high frequency, such as pronouns and prepositions. They are generally not filtered out in stylometric analyses, since such words give insight into the unconscious stylistic fingerprints of authors. Still, filtering them out may have interesting implications.
 
 Finally, I:
-    1. Calculated, for each novel, what percentage of the total text each word represents.
-    2. Normalized these percentages in view of the entire corpus: if 5.4% of *Quicksand* is "the," and if the average percentage value of "the" is lower than 5.4%, then "the" gets a positive "z-score" value. (It would get a negative z-score if the percentages were reversed.)[^5]
+
+1. Calculated, for each novel, what percentage of the total text each word represents.
+    
+2. Normalized these percentages in view of the entire corpus: if 5.4% of *The Sport of Gods* is "the," and if the average percentage value of "the" is lower than 5.4%, then "the" gets a positive "z-score" value. (It would get a negative z-score if the percentages were reversed.)[^5]
+
 Z-score normalization is necessary in this task, because it equalizes the weight of every single word in a given MFW stratum. If I were to use raw percentages, then words with very high frequency would give no room for other words to influence the results in any of the MFW strata.
 
 In sum, I converted the novels to normalized frequency distributions that measure how differently a novel is written from the rest in terms of word frequency. It is important to note here that, when we look at lower frequency strata like 100 MFW (remember Juola?), we look almost exclusively at words with low semantic value. Words such as "the," "to," or "I" are bound to dominate every English text, frequency wise. This will give us information on the unconscious style of texts. In comparison, when we look at higher MFW strata, we are looking at the content of texts along with their unconscious style. As we will see below, this has interesting implications with regard to gender, chronology, as well as embodiment.[^6]
@@ -42,11 +45,24 @@ This subsection serves as a quick overview of the five visualization components 
 ## Analysis
 ### Looking from afar: gender and chronology
 
-Without further ado, let's get right into it. Let's look at our data from afar, and look at the broad divisions of gender and chronology. [Figure 1](Figure1)
+Well, let's get right into it. Let's look at our data from afar, and look at the broad divisions of gender and chronology. As [Figure 1](#Figure1) shows, on lower MFW strata, there is not much difference between authors of different genders; everyone's novel groups around the center of the plot. As the plot moves to the higher MFW strata, a slight division of genders starts to emerge in the center.
 
-![Figure1](./figs/fig1.gif)
+![Figure 1](./figs/fig1.gif){: #Figure1}
+>Figure 1. The PCA plot as it progresses from 100 to 2000 MFW, with the novels color coded based on their authors' genders.
 
-[^1]: "Distant" as in digital humanities pioneer Franco Moretti's famous coinage, "distant reading." I mean to say that I will apply a computational method to look at all 42 books at once, instead of close reading a few of them.
+On its face, this could suggest that men and women write about different things, as higher MFW strata include content-based information. It occurs to me that this gender division is not purely based on content in the sense of genre or theme. Let's zoom in on the main manifestation of this division in the high MFW stratum of 1500. We can find corresponding books along the gender division in [Figure 2](#Figure2): The New Orleans romance of Frank Yerby's *The Foxes of Harrow* (M_Yerby_Harrow_1946) can pair with the passionate historical romance of Beverly Jenkins's *Through the Storm* (W_Jenkins_Storm_1998); likewise, we can associate the psychological studies of Nella Larsen's *Quicksand* (W_Larsen_Quicksand_1928) and Ralph Ellison *Invisible Man* (M_Ellison_Invisible_1952).
+
+![Figure 2](./figs/fig2.png){: #Figure2}
+>Figure 2. The PCA plot, zoomed in.
+
+The problem is that these two pairs aren't associated, at least not on the plot. Why? The gender division could parallel the division of externality and internality. Yerby's novel moves between New Orleans and the nearby Harrow plantation; even the title suggests an emphasis on setting (and, hence, on externality). In contrast, *Quicksand*, despite the cosmopolitan reach of its setting from America to Europe, has a suffocating and claustrophobic feel—I am thinking, in particular, of how Helga is trapped by the biological process of childbirth at the end of the novel. [Figure 3](#Figure3) gives credence to my hypothesis; PC2, the PC of the y axis where the division occurs, seems driven in large part by words of the outside world, such as "light," "air," "streets," and "darkness."
+
+![Figure 3](./figs/fig3.png){: #Figure3}
+>Figure 3. The top ten loadings of PC2.
+
+Looking at [Figure 1](#Figure1), one may notice *Iola Leroy, or, Shadows Uplifted* by Frances E. W. Harper (W_Harper_Iola_1892) as a text which, in contrast to the gender division discussed above, is consistently grouped together with
+
+[^1]: "Distant" as in digital humanities pioneer Franco Moretti's famous coinage, "distant reading." I mean to say that I will apply computational methodology to look at all 42 books at once, instead of close reading a few of them.
 [^2]: Mendenhall, T. C. ["The Characteristic Curves of Composition."](https://www.jstor.org/stable/1764604) *Science*, vol. 9, no. 214, 1887, pp. 237–49.
 [^3]: See [this](https://languagelog.ldc.upenn.edu/nll/?p=5315) *Language Log* blog post.
 [^4]: As just two examples of this kind of computational literary studies scholarship, see Matthew L. Jockers's [*Macroanalysis: Digital Methods and Literary History*](https://www.press.uillinois.edu/books/?id=p079078) (2013) and Andrew Piper's [*Enumerations: Data and Literary Study*](https://press.uchicago.edu/ucp/books/book/chicago/E/bo28465405.html) (2018).
