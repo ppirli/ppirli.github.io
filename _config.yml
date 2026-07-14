@@ -1,0 +1,17 @@
+url: "https://ppirli.github.io"
+baseurl: ""
+
+title: ---
+description: ---
+
+markdown: kramdown
+plugins:
+  - jekyll-remote-theme
+
+theme: minima
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+  toc_levels: 1..3
