@@ -12,7 +12,7 @@ title: Home
 Test intro[^1]
 
 ## link
-[link to blog42](./blog42/blogs)
+[link to blog42](./blog42/)
 [my github](https://github.com/ppirli/)
 
 > This is a blockquote.
