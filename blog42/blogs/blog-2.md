@@ -4,7 +4,7 @@ title: Analyzing Action Verbs
 ---
 <link
   rel="stylesheet"
-  href="{{ '/assets/css/blog42.css' | relative_url }}">
+  href="{{'/blog42/assets/css/blog42.css'}}">
 
 * TOC
 {:toc}
@@ -46,7 +46,7 @@ I'll start my analysis with a PCA plot. This will aid in showing the general tre
 <figure id="Figure1" class="plotly-figure plotly-figure--pca">
   <iframe
     class="plotly-embed plotly-embed--pca"
-    src="{{ '/assets/figs/blog2/fig1.html' | relative_url }}"
+    src="{{'/blog42/assets/figs/blog2/fig1.html'}}"
     title="Figure 1"
     aria-describedby="Figure1Caption"
     loading="lazy">
@@ -73,7 +73,7 @@ I chose to use slopegraphs to visualize the different modes of embodiment found 
 <figure id="Figure2" class="plotly-figure plotly-figure--wide">
   <iframe
     class="plotly-embed plotly-embed--wide"
-    src="{{ '/assets/figs/blog2/fig2.html' | relative_url }}"
+    src="{{'/blog42/assets/figs/blog2/fig2.html'}}"
     title="Figure 2"
     aria-describedby="Figure2Caption"
     loading="lazy">
@@ -112,7 +112,7 @@ I will end this post with [Figure 3](#Figure3), which is an extended version of 
 <figure id="Figure3" class="plotly-figure plotly-figure--wide">
   <iframe
     class="plotly-embed plotly-embed--wide"
-    src="{{ '/assets/figs/blog2/fig3.html' | relative_url }}"
+    src="{{'/blog42/assets/figs/blog2/fig3.html'}}"
     title="Figure 3"
     aria-describedby="Figure3Caption"
     loading="lazy">
