@@ -2,6 +2,7 @@
 layout: default
 title: Analyzing Action Verbs
 ---
+<link rel="stylesheet" href="/blog42/assets/css/blog42.css">
 
 * TOC
 {:toc}
@@ -82,8 +83,19 @@ In comparison, action verb data perhaps didn't produce results that were as inte
 
 I will end this post with [Figure 3](#Figure3), which is an extended version of [Figure 2](#Figure2) that contains slopegraphs for all 42 novels in the corpus. Using [Figure 3](#Figure3), you can engage in analyses of action verbs in each of the 42 novels in a way that goes beyond this blog post.
 
-![Figure 3. Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the 42 novels can be selected.](../assets/figs/blog2/fig3.html){: #Figure3}
->Figure 3. Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the 42 novels can be selected.
+<figure id="Figure3" class="plotly-figure">
+  <iframe
+    class="plotly-embed"
+    src="/blog42/assets/figs/blog2/fig3.html"
+    title="Figure 3. Interactive slopegraphs comparing action-verb frequencies"
+    loading="lazy">
+  </iframe>
+
+  <figcaption>
+    <strong>Figure 3.</strong>
+    Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the 42 novels can be selected.
+  </figcaption>
+</figure>
 
 ## Notes
 [^1]: It is important to note here that I am using the pos_ attribute of a spaCy token, which gives the coarse-grained part-of-speech of a word. This is in contrast to the tag_ token attribute, which denotes the fine-grained part-of-speech of a word. Coarse-grained and fine-grained are two terms of art that respectively refer to broader and narrower part-of-speech categories. As regards the English language, the coarse-grained part-of-speech may reveal grammatical relationships within a sentence, whereas the fine-grained part-of-speech may reveal morphological information on the word. To demonstrate this phenomenon, take the sentence "He is running." The coarse-grained parts-of-speech for "is" and "running" are respectively AUX (meaning auxiliary verb) and VERB (self-explanatory). In comparison, the fine-grained parts-of-speech of these two words are respectively VBZ (meaning a third-person singular present verb) and VBG (meaning a verb in the form of a gerund or a present participle). It will be seen from this explanation that the pos_ attributes of spaCy tokens are more helpful to my analysis compared to the tag_ attributes.

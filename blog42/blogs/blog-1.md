@@ -2,6 +2,7 @@
 layout: default
 title: Stylometric Analysis
 ---
+<link rel="stylesheet" href="/blog42/assets/css/blog42.css">
 
 * TOC
 {:toc}
