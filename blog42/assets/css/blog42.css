@@ -8,7 +8,12 @@
 }
 
 .plotly-figure--wide {
-    max-width: 1200px;
+    width: min(1200px, calc(100vw - 2rem));
+    max-width: none;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .plotly-embed {
@@ -29,7 +34,7 @@
 }
 
 .plotly-embed--wide {
-    height: clamp(450px, 50vw, 600px);
+    height: clamp(450px, 50vw, 650px);
 }
 
 .plotly-figure figcaption {
