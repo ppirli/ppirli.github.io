@@ -25,11 +25,11 @@
 }
 
 .plotly-embed--pca {
-    height: clamp(450px, 75vw, 550px);
+    height: clamp(450px, 75vw, 600px);
 }
 
 .plotly-embed--wide {
-    height: clamp(550px, 75vw, 550px);
+    height: clamp(550px, 50vw, 1000px);
 }
 
 .plotly-figure figcaption {
