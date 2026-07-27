@@ -119,7 +119,7 @@ I will end this post with [Figure 3](#Figure3), which is an extended version of 
   </iframe>
 
   <figcaption id="Figure3Caption">
-    <i>Figure 2.</i>
+    <i>Figure 3.</i>
     Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the 42 novels can be selected.
   </figcaption>
 </figure>
