@@ -1,22 +1,37 @@
 .plotly-figure {
     width: 100%;
-    margin: 0 auto;
+    margin: 2rem auto;
+}
+
+.plotly-figure--pca {
+    max-width: 800px;
+}
+
+.plotly-figure--wide {
+    max-width: 1200px;
 }
 
 .plotly-embed {
     display: block;
 
     width: 100%;
-    max-width: 800px;
-    max-height: 700px;
+    max-width: 100%;
+    margin: 0;
 
-    margin: 0 auto;
-
-    border: 0;
+    border: 0 !important;
     outline: 0;
     box-shadow: none;
-
-    overflow: hidden;
+    background: transparent;
 }
 
+.plotly-embed--pca {
+    height: clamp(450px, 75vw, 600px);
+}
+
+.plotly-embed--wide {
+    height: clamp(550px, 50vw, 650px);
+}
+
+.plotly-figure figcaption {
+    margin-top: 0.75rem;
 }

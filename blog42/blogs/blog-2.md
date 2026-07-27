@@ -41,8 +41,20 @@ What remains is a corpus of 42 texts that have been effectively transformed into
 
 I'll start my analysis with a PCA plot. This will aid in showing the general trends of action verb preference followed by the 42 novels. In the interactive plot below, I take the top 100 action verbs occurring across the campus, calculate the z-score values of the frequencies of each of the verbs in each novel using the normalization process described in the previous blog post, and placed each novel on a two-dimensional plot using these z-scores.
 
-![Figure 1. An interactive PCA plot of the 42 novels, displaying how the novels differ with regard to the frequency with which they use the top 100 action verbs occurring among them. Four novels are highlighted, and named on the legend.](../assets/figs/blog2/fig1.html){: #Figure1}
->Figure 1. An interactive PCA plot of the 42 novels, displaying how the novels differ with regard to the frequency with which they use the top 100 action verbs occurring among them. Four novels are highlighted, and named on the legend.
+<figure id="Figure1" class="plotly-figure plotly-figure--pca">
+  <iframe
+    class="plotly-embed plotly-embed--pca"
+    src="{{ '/assets/figs/blog2/fig1.html' | relative_url }}"
+    title="Figure 1"
+    aria-describedby="Figure1Caption"
+    loading="lazy">
+  </iframe>
+
+  <figcaption id="Figure1Caption">
+    <i>Figure 1.</i>
+    An interactive PCA plot of the 42 novels, displaying how the novels differ with regard to the frequency with which they use the top 100 action verbs occurring among them. Four novels are highlighted and named in the legend.
+  </figcaption>
+</figure>
 
 Although I was expecting *Life on Wheels* to remain the most extreme stylometric outlier in this analysis, it is in fact Ben Okri's *Astonishing the Gods* which assumes this role. In the previous post, I had observed that Okri's novel strayed far from the other novels in the PCA plots on higher MFW strata. The most probable explanation for this is that the thematic contours of *Astonishing the Gods* is substantially different from the other 41 novels. Okri's novel depicts a society of invisible beings living in a world where "Every experience is repeated or suffered till you experience it properly and fully the first time."[^2] This suggests that *Astonishing the Gods*'s stylometric uniqueness may have its roots in a fundamentally novel representation of embodiment. Accordingly, examining the action verbs that are prominent in *Astonishing the Gods* may help us understand what exactly makes this novel so unique.
 
@@ -56,8 +68,20 @@ Thus far, I made a lot of claims based on a two-dimensional plot, which, at the 
 
 I chose to use slopegraphs to visualize the different modes of embodiment found in the four novels I highlighted in [Figure 1](#Figure1). A slopegraph is a chart of lines where each line plots the difference between two data points. [Figure 2](#Figure2) presents two slopegraphs. The left slopegraph tracks the relative frequencies[^4] of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel. The right slopegraph, on the other hand, tracks the relative frequencies of the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. By default, the two slopegraphs display the data for *Astonishing the Gods*, the other four novels may be selected using the dropdown menu below the title.
 
-![Figure 2. Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the four highlighted novels can be selected.](../assets/figs/blog2/fig2.html){: #Figure2}
->Figure 2. Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the four highlighted novels can be selected.
+<figure id="Figure2" class="plotly-figure plotly-figure--wide">
+  <iframe
+    class="plotly-embed plotly-embed--wide"
+    src="{{ '/assets/figs/blog2/fig2.html' | relative_url }}"
+    title="Figure 2"
+    aria-describedby="Figure2Caption"
+    loading="lazy">
+  </iframe>
+
+  <figcaption id="Figure2Caption">
+    <i>Figure 2.</i>
+    Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the four highlighted novels can be selected.
+  </figcaption>
+</figure>
 
 Looking at the left slopegraph for *Astonishing the Gods*, we see that verbs that denote transaction (get, take, give), active interaction (tell, ask, let, call), and the action verb "do" are drastically underutilized—you have to use the "Pan" tool on the top right of the screen to see where they rank on the novel. In contrast, verbs of passive perception (see, feel, hear) are used way more frequently in Okri's novel relative to the corpus.
 
@@ -83,83 +107,20 @@ In comparison, action verb data perhaps didn't produce results that were as inte
 
 I will end this post with [Figure 3](#Figure3), which is an extended version of [Figure 2](#Figure2) that contains slopegraphs for all 42 novels in the corpus. Using [Figure 3](#Figure3), you can engage in analyses of action verbs in each of the 42 novels in a way that goes beyond this blog post.
 
-<figure id="Figure3" class="plotly-figure">
+<figure id="Figure3" class="plotly-figure plotly-figure--wide">
   <iframe
-    id="Figure3Frame"
-    class="plotly-embed"
-    src="/projectname/assets/figs/blog2/fig3.html"
-    title="Figure 3. Interactive slopegraphs"
-    loading="lazy"
-    scrolling="no">
+    class="plotly-embed plotly-embed--wide"
+    src="{{ '/assets/figs/blog2/fig3.html' | relative_url }}"
+    title="Figure 3"
+    aria-describedby="Figure3Caption"
+    loading="lazy">
   </iframe>
 
-  <figcaption>
-    <i>Figure 3.</i>
-    Two slopegraphs respectively showing: (1) the relative frequencies of
-    the top 25 most frequent action verbs in the corpus versus the relative
-    frequencies of these verbs in the selected novel, and (2) the top 25
-    most frequent action verbs in the selected novel versus the relative
-    frequencies of these verbs in the corpus. Using the dropdown menu, one
-    of the 42 novels can be selected.
+  <figcaption id="Figure3Caption">
+    <i>Figure 2.</i>
+    Two slopegraphs respectively showing: (1) the relative frequencies of the top 25 most frequent action verbs in the corpus versus the relative frequencies of these verbs in the selected novel, and (2) the top 25 most frequent action verbs in the selected novel versus the relative frequencies of these verbs in the corpus. Using the dropdown menu, one of the 42 novels can be selected.
   </figcaption>
 </figure>
-
-<script>
-  (() => {
-    const iframe = document.getElementById("Figure3Frame");
-
-    function resizeIframe() {
-      const iframeDocument =
-        iframe.contentDocument || iframe.contentWindow.document;
-
-      if (!iframeDocument) {
-        return;
-      }
-
-      const bodyHeight = iframeDocument.body
-        ? iframeDocument.body.scrollHeight
-        : 0;
-
-      const documentHeight = iframeDocument.documentElement
-        ? iframeDocument.documentElement.scrollHeight
-        : 0;
-
-      const requiredHeight = Math.max(bodyHeight, documentHeight);
-
-      if (
-        requiredHeight > 0 &&
-        Math.abs(iframe.offsetHeight - requiredHeight) > 2
-      ) {
-        iframe.style.height = `${requiredHeight}px`;
-      }
-    }
-
-    iframe.addEventListener("load", () => {
-      resizeIframe();
-
-      const iframeDocument =
-        iframe.contentDocument || iframe.contentWindow.document;
-
-      if (
-        iframeDocument &&
-        iframeDocument.documentElement &&
-        "ResizeObserver" in window
-      ) {
-        const observer = new ResizeObserver(resizeIframe);
-        observer.observe(iframeDocument.documentElement);
-      }
-
-      /*
-       * Plotly can finish sizing itself slightly after the iframe's
-       * load event, so check again after it renders.
-       */
-      window.setTimeout(resizeIframe, 250);
-      window.setTimeout(resizeIframe, 1000);
-    });
-
-    window.addEventListener("resize", resizeIframe);
-  })();
-</script>
 
 ## Notes
 [^1]: It is important to note here that I am using the pos_ attribute of a spaCy token, which gives the coarse-grained part-of-speech of a word. This is in contrast to the tag_ token attribute, which denotes the fine-grained part-of-speech of a word. Coarse-grained and fine-grained are two terms of art that respectively refer to broader and narrower part-of-speech categories. As regards the English language, the coarse-grained part-of-speech may reveal grammatical relationships within a sentence, whereas the fine-grained part-of-speech may reveal morphological information on the word. To demonstrate this phenomenon, take the sentence "He is running." The coarse-grained parts-of-speech for "is" and "running" are respectively AUX (meaning auxiliary verb) and VERB (self-explanatory). In comparison, the fine-grained parts-of-speech of these two words are respectively VBZ (meaning a third-person singular present verb) and VBG (meaning a verb in the form of a gerund or a present participle). It will be seen from this explanation that the pos_ attributes of spaCy tokens are more helpful to my analysis compared to the tag_ attributes.
