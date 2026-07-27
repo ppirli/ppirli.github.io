@@ -94,7 +94,7 @@ I will end this post with [Figure 3](#Figure3), which is an extended version of 
   </iframe>
 
   <figcaption>
-    <strong>Figure 3.</strong>
+    <i>Figure 3.</i>
     Two slopegraphs respectively showing: (1) the relative frequencies of
     the top 25 most frequent action verbs in the corpus versus the relative
     frequencies of these verbs in the selected novel, and (2) the top 25
