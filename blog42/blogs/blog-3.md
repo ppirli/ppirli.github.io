@@ -15,7 +15,11 @@ This is the third post in a series of blogs that use digital humanities methodol
 ## Introduction
 In [the previous post](./blog-2.html), I engaged in a stylometric analysis of the way in which the novels in the *42 Books / 42 Years* corpus deployed different modes of embodiment. I did this by excluding stopwords (high-frequency, low-semantic-value words) as well as any words that weren't verbs, which left me with a corpus of documents consisting of only action verbs.
 
-While my analysis of action verbs was fruitful in uncovering how some novels exhibit starkly different modes of embodiment in accordance with the different environments they depict, it left me with the inkling that there was more to learn about the different modes of embodiment that manifested themselves in the 42 novels in our corpus. Therefore, in this post, I will continue the previous post's
+While my analysis of action verbs was fruitful in uncovering how some novels exhibit starkly different modes of embodiment in accordance with the different environments they depict, it left me with the inkling that there was more to learn about the different modes of embodiment that manifested themselves in the 42 novels in our corpus. Therefore, this post takes another look at embodiment, this time from a different vantage point.
+
+## Methodology
+
+
 
 
 a stylometric analysis of HBW's *42 Books / 42 Years* corpus by looking at the 100 to 2,000 most frequent words (MFW) occurring among the 42 novels. While I noted that I preprocessed the corpus twice, once including stopwords, and once excluding them, I only focused on the version of the corpus that contained stopwords. My reason was that any list of stopwords—such as [the one found in spaCy](https://github.com/explosion/spaCy/blob/master/spacy/lang/en/stop_words.py), the Python natural language processing (NLP) library I used to tokenize the corpus—consists of high-frequency, low-semantic words such as pronouns and prepositions. Therefore, excluding stopwords would entail the loss of unconscious stylistic fingerprints latent in texts.
