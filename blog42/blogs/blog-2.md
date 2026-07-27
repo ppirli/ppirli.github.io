@@ -88,7 +88,7 @@ I will end this post with [Figure 3](#Figure3), which is an extended version of 
     class="plotly-embed"
     src="/blog42/assets/figs/blog2/fig3.html"
     title="Figure 3. Interactive slopegraphs comparing action-verb frequencies"
-    loading="lazy">
+    scrolling="no">
   </iframe>
 
   <figcaption>
