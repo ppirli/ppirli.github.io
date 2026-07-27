@@ -101,11 +101,13 @@ Accordingly, Brown's novel presents a mode of the embodiment that is in stark co
 
 ## Conclusion
 
-All in all, while high-frequency words are generally not excluded in stylometric analyses, excluding them and focusing only on a grouping of words can reveal interesting things about the ways in which novelists write their narratives.
+It can be seen that while high-frequency words are generally not excluded in stylometric analyses, excluding them and focusing only on a grouping of words can reveal interesting things about the ways in which novelists write their narratives.
 
-Action verbs, as we have seen, are revelatory of the modes of embodiment that characterize the modes of embodiment that dominate a narrative based on the context portrayed by that narrative. Accordingly, the analysis of action verbs were particularly illuminating with regard to *Astonishing the Gods* and *Clotel*, which depict two disparate environments.
+Action verbs, as we have seen, are revelatory of the modes of embodiment that characterize the modes of embodiment that dominate a narrative based on the context portrayed by that narrative. Accordingly, the analysis of action verbs were particularly illuminating with regard to *Astonishing the Gods* and *Clotel*, which depict two disparate environments. The connection between action verbs and the environments of these two novels undoubtedly manifests from the nature of action verbs as words of lower frequency. While function words served to reveal authors' stylistic fingerprints in the previous post, action verbs work to expose the thematic layers of novels.
 
-In comparison, action verb data perhaps didn't produce results that were as interesting with regard to *Life on Wheels*. The fact that "stand" is underutilized in a novel about a paraplegic woman is not especially surprising. Still, I believe that there is more to be learned from a computational analysis of embodiment in HBW's 42 Books / 42 Years corpus. Therefore, the next blog post in this series will delve into the syntax of the 42 novels that make up this corpus.
+It is perhaps for this reason that action verb data perhaps didn't produce results that were as interesting with regard to *Life on Wheels*. The fact that "stand" is underutilized in a novel about a paraplegic woman is not especially surprising. It throws something within the content of the book in relief, to be sure, but this something is evident from a cursory read, already.
+
+All in all, I believe that there is more to be learned from a computational analysis of embodiment in HBW's 42 Books / 42 Years corpus. Therefore, the next blog post in this series will delve into the syntax of the 42 novels that make up this corpus.
 
 I will end this post with [Figure 3](#Figure3), which is an extended version of [Figure 2](#Figure2) that contains slopegraphs for all 42 novels in the corpus. Using [Figure 3](#Figure3), you can engage in analyses of action verbs in each of the 42 novels in a way that goes beyond this blog post.
 
