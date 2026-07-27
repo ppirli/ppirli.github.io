@@ -29,7 +29,7 @@
 }
 
 .plotly-embed--wide {
-    height: clamp(550px, 50vw, 1000px);
+    height: clamp(450px, 50vw, 600px);
 }
 
 .plotly-figure figcaption {
