@@ -2,7 +2,9 @@
 layout: default
 title: Stylometric Analysis
 ---
-<link rel="stylesheet" href="/blog42/assets/css/blog42.css">
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/blog42.css' | relative_url }}">
 
 * TOC
 {:toc}
