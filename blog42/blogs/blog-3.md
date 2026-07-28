@@ -20,7 +20,147 @@ While my analysis of action verbs was fruitful in uncovering how some novels exh
 ## Methodology
 At the end of the previous post, I mentioned that action verbs have a connection to the thematic layers—or, what makes up the content—of a novel. To produce results that are different, I need to come up with a different stylometric methodology that still pertains to embodiment. But, how? The answer may lie in going beyond the words that populate the surface of the text, and looking into the syntactic makeup of these words.
 
-In other words, I will look at the frequency of each part of speech (POS) in each of the 42 novels. To this end, I use the Python natural language processing (NLP) library [spaCy](https://spacy.io/)'s POS-tagger, which associates each word in a document with its POS. Those who read the notes in the previous blog post will remember that I'd used a POS-tagger to exclude any word which was not a verb from the corpus, and that in particular, I used the coarse-grained output of the POS-tagger, rather than using fine-grained POSs. Coarse-grained POSes denote the broad grammatical category of words, whereas fine-grained ones give morphological information on words in more detail.
+In other words, I will look at the frequency of each part of speech (POS) in each of the 42 novels. To this end, I use the Python natural language processing (NLP) library [spaCy](https://spacy.io/)'s POS-tagger, which associates each word in a document with its POS. Those who read the notes in the previous blog post will remember that I'd used a POS-tagger to exclude any word which was not a verb from the corpus, and that in particular, I used the coarse-grained output of the POS-tagger, rather than using fine-grained POSs. Coarse-grained POSs denote the broad grammatical category of words, whereas fine-grained ones give morphological information on words in more detail. I will continue to use the coarse-grained output in this post.
+
+Why? The simple answer is that fine-grained POSs are, as the name indicates, too granular; the more precise morphological information they yield comes at the cost of easily interpretable data. Take, for example, the sentence "I went to that place because I have been wanting to go there." [Table 1](#Table1) displays the coarse- and fine-grained outputs of the sentence after being parsed by a POS-tagger. As can be seen, the fine-grained output has many different identifiers for the broad part of speech category of the verb. Additionally, the fine-grained output gives "to" in the role of an infinitive particle (e.g., to go, to eat, to be) a class of its own, rather than including it within the broader class of particles, which includes the possessive marker "'s" and the negation marker "not."
+
+<table id="Table1">
+  <thead>
+    <tr>
+      <th scope="col">Word</th>
+      <th scope="col">Coarse POS (<code>pos_</code>)</th>
+      <th scope="col">Fine POS (<code>tag_</code>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>I</td>
+      <td><code>PRON</code> (Pronoun)</td>
+      <td><code>PRP</code> (Personal pronoun)</td>
+    </tr>
+    <tr>
+      <td>went</td>
+      <td><code>VERB</code> (Verb)</td>
+      <td><code>VBD</code> (Verb, past tense)</td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td><code>ADP</code> (Adposition)</td>
+      <td><code>IN</code> (Preposition or subordinating conjunction)</td>
+    </tr>
+    <tr>
+      <td>that</td>
+      <td><code>DET</code> (Determiner)</td>
+      <td><code>DT</code> (Determiner)</td>
+    </tr>
+    <tr>
+      <td>place</td>
+      <td><code>NOUN</code> (Noun)</td>
+      <td><code>NN</code> (Noun, singular or mass)</td>
+    </tr>
+    <tr>
+      <td>because</td>
+      <td><code>SCONJ</code> (Subordinating conjunction)</td>
+      <td><code>IN</code> (Preposition or subordinating conjunction)</td>
+    </tr>
+    <tr>
+      <td>I</td>
+      <td><code>PRON</code> (Pronoun)</td>
+      <td><code>PRP</code> (Personal pronoun)</td>
+    </tr>
+    <tr>
+      <td>have</td>
+      <td><code>AUX</code> (Auxiliary verb)</td>
+      <td><code>VBP</code> (Verb, non-3rd person singular present)</td>
+    </tr>
+    <tr>
+      <td>been</td>
+      <td><code>AUX</code> (Auxiliary verb)</td>
+      <td><code>VBN</code> (Verb, past participle)</td>
+    </tr>
+    <tr>
+      <td>wanting</td>
+      <td><code>VERB</code> (Verb)</td>
+      <td><code>VBG</code> (Verb, gerund or present participle)</td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td><code>PART</code> (Particle)</td>
+      <td><code>TO</code> (To)</td>
+    </tr>
+    <tr>
+      <td>go</td>
+      <td><code>VERB</code> (Verb)</td>
+      <td><code>VB</code> (Verb, base form)</td>
+    </tr>
+    <tr>
+      <td>there</td>
+      <td><code>ADV</code> (Adverb)</td>
+      <td><code>RB</code> (Adverb)</td>
+    </tr>
+  </tbody>
+</table>
+
+To be sure, spaCy's list of fine-grained POSs are fine-tuned for the English language, insofar as it follows the list of POSs (tagset) made for the Penn Treebank Project, which is a large annotated corpus of English text.[^1] The Penn Treebank tagset gives precise information on the way in which English language is constructed. I am not, however, as interested in the differences between different verb or particle forms as I am interested in which authors' texts are dominated by which POS categories. That a novel deviates from the rest of the corpus by its frequent use of adpositions, which primarily express spatial (e.g., "under," "atop," and "in") and temporal (e.g. "after," "during," and "before") relations, may exemplify a different form of embodiment than a novel that uses verbs considerably more than the corpus average. In order to look into these differences in frequency, I opt for spaCy's coarse-grained output, which uses the Universal Dependencies tagset.[^2] Table 2 displays the 19 POSs in the Universal Dependencies tagset.
+
+<table class="typeindex">
+  <thead>
+    <tr>
+      <th>Open class words</th>
+      <th>Closed class words</th>
+      <th>Other</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ADJ</code> (Adjective)</td>
+      <td><code>ADP</code> (Adposition)</td>
+      <td><code>PUNCT</code> (Punctuation)</td>
+    </tr>
+    <tr>
+      <td><code>ADV</code> (Adverb)</td>
+      <td><code>AUX</code> (Auxiliary verb)</td>
+      <td><code>SYM</code> (Symbol)</td>
+    </tr>
+    <tr>
+      <td><code>INTJ</code> (Interjection)</td>
+      <td><code>CCONJ</code> (Coordinating conjunction)</td>
+      <td><code>X</code> (Other)</td>
+    </tr>
+    <tr>
+      <td><code>NOUN</code> (Noun)</td>
+      <td><code>DET</code> (Determiner)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>PROPN</code> (Proper noun)</td>
+      <td><code>NUM</code> (Numeral)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code>VERB</code> (Verb)</td>
+      <td><code>PART</code> (Particle)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code>PRON</code> (Pronoun)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code>SCONJ</code> (Subordinating conjunction)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+In my analysis, I excised any token which was tagged as PUNCT, SYM<
+
+## Notes
+[^1]: Marcus, Mitchell P., et al. “Building a Large Annotated Corpus of English: The Penn Treebank.” Computational Linguistics, vol. 19, no. 2, 1993, pp. 313–30.
+[^2]: Accessible [here](https://universaldependencies.org/u/pos/).
+
 
 To quote from the previous post's notes: Coarse-grained and fine-grained are two terms of art that respectively refer to broader and narrower part-of-speech categories. As regards the English language, the coarse-grained part-of-speech may reveal grammatical relationships within a sentence, whereas the fine-grained part-of-speech may reveal morphological information on the word.
 
