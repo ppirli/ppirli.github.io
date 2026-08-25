@@ -256,7 +256,7 @@ At the same time, as we have seen in the comparative analysis of Tillman's and C
   </iframe>
 
   <figcaption id="Figure4Caption">
-    <i>Figure 2.</i>
+    <i>Figure 4.</i>
     A radar chart showing a polygon that plots the z-scores of each of the 13 POSs in one of the 42 novels in the corpus, superimposed on another polygon representing the corpus mean. The former polygon can be switched using the dropdown menu. 
   </figcaption>
 </figure>
