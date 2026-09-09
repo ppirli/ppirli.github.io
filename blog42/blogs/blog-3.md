@@ -25,6 +25,10 @@ In other words, I will look at the frequency of each part of speech (POS) in eac
 Why? The simple answer is that fine-grained POSs are, as the name indicates, too granular; the more precise morphological information they yield comes at the cost of easily interpretable data. Take, for example, the sentence "I went to that place because I have been wanting to go there." [Table 1](#Table1) displays the coarse- and fine-grained outputs of the sentence after being parsed by a POS-tagger. As can be seen, the fine-grained output has many different identifiers for the broad part of speech category of the verb. Additionally, the fine-grained output gives "to" in the role of an infinitive particle (e.g., to go, to eat, to be) a class of its own, rather than including it within the broader class of particles, which includes the possessive marker "'s" and the negation marker "not."
 
 <table id="Table1">
+  <caption>
+    <i>Table 1.</i>
+    test
+  </caption>
   <thead>
     <tr>
       <th scope="col">Word</th>
@@ -104,8 +108,8 @@ Why? The simple answer is that fine-grained POSs are, as the name indicates, too
 To be sure, spaCy's list of fine-grained POSs are fine-tuned for the English language, insofar as it follows the list of POSs (tagset) made for the Penn Treebank Project, which is a large annotated corpus of English text.[^1] The Penn Treebank tagset gives precise information on the way in which English language is constructed. I am not, however, as interested in the differences between different verb or particle forms as I am interested in which authors' texts are dominated by which POS categories. That a novel deviates from the rest of the corpus by its frequent use of adpositions, which primarily express spatial (e.g., "under," "atop," and "in") and temporal (e.g. "after," "during," and "before") relations, may exemplify a different form of embodiment than a novel that uses verbs considerably more than the corpus average. In order to look into these differences in frequency, I opt for spaCy's coarse-grained output, which uses the Universal Dependencies tagset.[^2] [Table 2](#Table2) displays the 19 POSs in the Universal Dependencies tagset.
 
 <table class="typeindex">
-    <caption>
-    <i>Table 1.</i>
+  <caption>
+    <i>Table 2.</i>
     test
   </caption>
   <thead>
