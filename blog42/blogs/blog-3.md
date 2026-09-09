@@ -27,7 +27,7 @@ Why? The simple answer is that fine-grained POSs are, as the name indicates, too
 <table id="Table1">
   <caption>
     <i>Table 1.</i>
-    test
+    Fine- and coarse-grained outputs of the sentence "I went to that place because I have been wanting to go there," after being parsed by a POS-tagger.
   </caption>
   <thead>
     <tr>
@@ -110,7 +110,7 @@ To be sure, spaCy's list of fine-grained POSs are fine-tuned for the English lan
 <table class="typeindex">
   <caption>
     <i>Table 2.</i>
-    test
+    The 19 POSs in the Universal Dependencies tagset.
   </caption>
   <thead>
     <tr>
