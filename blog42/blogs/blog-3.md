@@ -9,7 +9,7 @@ title: Analyzing Parts of Speech
 * TOC
 {:toc}
 
-# 42 Books / 42 Years Blog Post 2: Analyzing Parts of Speech: or, A Stylometry of Embodiment, Part II
+# 42 Books / 42 Years Blog Post 3: Analyzing Parts of Speech: or, A Stylometry of Embodiment, Part II
 This is the third post in a series of blogs that use digital humanities methodologies to examine the books comprising the [History of Black Writing (HBW)](https://hbw.iu.edu)'s 2025 exhibit [*42 Books / 42 Years*](https://hbw.iu.edu/news-events/events/42Books-42Years/index.html). The second and third posts in the series present a continuation of the first post's stylometric analysis.
 
 ## Introduction
@@ -101,9 +101,13 @@ Why? The simple answer is that fine-grained POSs are, as the name indicates, too
   </tbody>
 </table>
 
-To be sure, spaCy's list of fine-grained POSs are fine-tuned for the English language, insofar as it follows the list of POSs (tagset) made for the Penn Treebank Project, which is a large annotated corpus of English text.[^1] The Penn Treebank tagset gives precise information on the way in which English language is constructed. I am not, however, as interested in the differences between different verb or particle forms as I am interested in which authors' texts are dominated by which POS categories. That a novel deviates from the rest of the corpus by its frequent use of adpositions, which primarily express spatial (e.g., "under," "atop," and "in") and temporal (e.g. "after," "during," and "before") relations, may exemplify a different form of embodiment than a novel that uses verbs considerably more than the corpus average. In order to look into these differences in frequency, I opt for spaCy's coarse-grained output, which uses the Universal Dependencies tagset.[^2] Table 2 displays the 19 POSs in the Universal Dependencies tagset.
+To be sure, spaCy's list of fine-grained POSs are fine-tuned for the English language, insofar as it follows the list of POSs (tagset) made for the Penn Treebank Project, which is a large annotated corpus of English text.[^1] The Penn Treebank tagset gives precise information on the way in which English language is constructed. I am not, however, as interested in the differences between different verb or particle forms as I am interested in which authors' texts are dominated by which POS categories. That a novel deviates from the rest of the corpus by its frequent use of adpositions, which primarily express spatial (e.g., "under," "atop," and "in") and temporal (e.g. "after," "during," and "before") relations, may exemplify a different form of embodiment than a novel that uses verbs considerably more than the corpus average. In order to look into these differences in frequency, I opt for spaCy's coarse-grained output, which uses the Universal Dependencies tagset.[^2] [Table 2](#Table2) displays the 19 POSs in the Universal Dependencies tagset.
 
 <table class="typeindex">
+    <caption>
+    <i>Table 1.</i>
+    test
+  </caption>
   <thead>
     <tr>
       <th>Open class words</th>
