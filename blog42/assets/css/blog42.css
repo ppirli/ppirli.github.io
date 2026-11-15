@@ -27,6 +27,12 @@ caption {
     margin-inline: auto;
 }
 
+.plotly-figure--wide2 figcaption {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+}
+
 .plotly-embed {
     display: block;
 
