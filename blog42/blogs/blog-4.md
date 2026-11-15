@@ -93,9 +93,9 @@ What comes after this rather boring and convoluted preprocessing step is rather 
 ### PyLDAvis Dashboard: What Can 10 Topics Tell Us About 42 Novels?
 My plan for this blog post is that its analysis will be less focused on certain novels, as the two previous posts have been. The pyLDAvis dashboard displayed in [Figure 1](#Figure1) provides good ground to begin a post with such a general approach. The dashboard displays the 10 topics in varying levels of distinctiveness; the most distinctive topic on the Y (PC2) axis appears to be topic 10. The top ten words most relevant to this topic (visible when the topic bubble is hovered over or clicked) are "phone," "kid," "book," "mom," "guy," "beach," "bag," "stuff," "job," and "lot." These words pertain to a mix of topics, including modern concerns ("phone," "job"), family ("kid," "mom"); there is, less conclusively, also a set of words that may appear in conversations between women ("guy," "bag"). Topic 3, the most similar topic to topic 10, continues the discourse of modernity ("car," "door," "street," "truck") with an added note of words that seem to belong in a work of noir fiction ("gun", "cop"). Likewise, topic 9, the next topic most similar to topic 10, shares the discourse of family ("mother," "father"), and adds to it the discourse of domesticity ("house," "room," "kitchen," "table").
 
-<figure id="Figure1" class="plotly-figure plotly-figure--pca">
+<figure id="Figure1" class="plotly-figure plotly-figure--wide">
   <iframe
-    class="plotly-embed plotly-embed--pca"
+    class="plotly-embed plotly-embed--wide"
     src="{{'/blog42/assets/figs/blog4/fig1.html'}}"
     title="Figure 1"
     aria-describedby="Figure1Caption"
