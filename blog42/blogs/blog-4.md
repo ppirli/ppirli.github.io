@@ -95,7 +95,7 @@ My plan for this blog post is that its analysis will be less focused on certain 
 
 <figure id="Figure1" class="plotly-figure plotly-figure--wide">
   <iframe
-    class="plotly-embed plotly-embed--wide"
+    class="plotly-embed plotly-embed--wide2"
     src="{{'/blog42/assets/figs/blog4/fig1.html'}}"
     title="Figure 1"
     aria-describedby="Figure1Caption"

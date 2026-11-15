@@ -42,6 +42,10 @@ caption {
     height: clamp(450px, 50vw, 600px);
 }
 
+.plotly-embed--wide2 {
+    height: clamp(450px, 50vw, 800px);
+}
+
 .plotly-figure figcaption {
     margin-top: 0.75rem;
 }
