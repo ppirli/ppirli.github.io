@@ -21,13 +21,6 @@ caption {
     transform: translateX(-50%);
 }
 
-.plotly-figure--wide2 {
-    width: min(1200px, calc(100vw - 2rem));
-    max-width: none;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
 .plotly-embed {
     display: block;
@@ -48,12 +41,4 @@ caption {
 
 .plotly-embed--wide {
     height: clamp(450px, 50vw, 600px);
-}
-
-.plotly-embed--wide2 {
-    height: max(450px, 50vw);
-}
-
-.plotly-figure figcaption {
-    margin-top: 0.75rem;
 }
