@@ -24,13 +24,9 @@ caption {
 .plotly-figure--wide2 {
     width: min(1200px, calc(100vw - 2rem));
     max-width: none;
-    margin-inline: auto;
-}
-
-.plotly-figure--wide2 figcaption {
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: anywhere;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .plotly-embed {
