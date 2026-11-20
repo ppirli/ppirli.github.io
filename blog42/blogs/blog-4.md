@@ -31,8 +31,7 @@ The second condition also helps with the imbalanced number of chunks produced by
 
 <table id="Table1">
   <caption>
-    <i>Table 1.</i><br>
-    Descriptive statistics of the chunk distribution in our corpus, with and without the inclusion of Leon Forrest's <i>Divine Days</i>.
+    <i>Table 1.</i> Descriptive statistics of the chunk distribution in our corpus, with and without the inclusion of Leon Forrest's <i>Divine Days</i>.
   </caption>
   <thead>
     <tr>
